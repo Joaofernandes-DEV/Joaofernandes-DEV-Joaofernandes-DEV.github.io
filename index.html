@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Menu Animado</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li class="active">
+                <a href="#">
+                    <span class="icon"><i class='bx bxs-home-alt-2'></i></span>
+                    <span class="label">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class='bx bxs-user'></i></span>
+                    <span class="label">Perfil</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class='bx bxs-cog'></i></span>
+                    <span class="label">Ajustes</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class='bx bxs-phone'></i></span>
+                    <span class="label">Contato</span>
+                </a>
+            </li>
+            <span class="active-indicator"></span>
+        </ul>
+    </nav>
+
+    <script>
+        const items = document.querySelectorAll('nav ul li');
+
+        function activeLink() {
+            items.forEach(item => item.classList.remove('active'));
+            this.classList.add('active');
+            updateIndicator();
+        }
+
+        function updateIndicator() {
+            const activeItem = document.querySelector('nav ul li.active');
+            const indicator = document.querySelector('nav ul .active-indicator');
+            const index = Array.from(items).indexOf(activeItem);
+            indicator.style.transform = `translateX(calc((80px * ${index}) + (16px * ${index})))`;
+        }
+
+        items.forEach(item => item.addEventListener('click', activeLink));
+    </script>
+</body>
+</html>

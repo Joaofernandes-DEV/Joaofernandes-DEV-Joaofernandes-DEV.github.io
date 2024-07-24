@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    min-height: 100vh;
+    background: rgba(160, 160, 161, 0.359);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 16px;
+    width: 550px;
+    height: 80px;
+}
+
+ul {
+    position: relative;
+    list-style: none;
+    display: flex;
+    gap: 16px;
+}
+
+ul li {
+    width: 80px;
+    height: 80px;
+}
+
+ul a {
+    position: relative;
+    width: 100%;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+}
+
+ul .icon {
+    display: block;
+    font-size: 34px;
+    line-height: 80px;
+    z-index: 1;
+    transition: .4s;
+}
+
+ul li.active .icon {
+    transform: translateY(-34px);
+}
+
+ul .label {
+    position: absolute;
+    transform: translateY(24px);
+    transition: .6s;
+    opacity: 0;
+}
+
+ul li.active .label {
+    opacity: 1;
+    transform: translateY(20px);
+}
+
+ul .active-indicator {
+    position: absolute;
+    top: -50px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: rgb(228, 228, 228);
+    border: 7px solid rgb(0, 0, 0);
+    transition: .4s;
+}
+
+ul .active-indicator::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -23px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-right-radius: 20px;
+    box-shadow: 0 -10px 0 0 rgb(0, 0, 0);
+}
+
+ul .active-indicator::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -23px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-left-radius: 20px;
+    box-shadow: -2px -6px 0 0 rgb(0, 0, 0);
+}
+
+
